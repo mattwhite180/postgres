@@ -21,7 +21,7 @@ services:
     build: deb/
     #command: /bin/bash -c "python tests.py"
     #command: bash -c "sleep infinity"
-    command: echo "hello world!"
+    command: psql
     volumes:
       - .:/python
     networks:
