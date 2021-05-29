@@ -20,8 +20,8 @@ services:
     restart: always
     build: deb/
     #command: /bin/bash -c "python tests.py"
-    #command: bash -c "sleep infinity"
-    command: psql
+    command: bash -c "sleep infinity"
+    #command: psql
     volumes:
       - .:/python
     networks:
