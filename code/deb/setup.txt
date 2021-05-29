@@ -1,0 +1,2 @@
+psql --command "CREATE DATABASE dvdrental"
+pg_restore --dbname=dvdrental --verbose dvdrental.tar
