@@ -13,14 +13,14 @@ services:
     volumes:
       - .postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=myproject
-      - POSTGRES_USER=myprojectuser
+      - POSTGRES_DB=dvdrental
+      - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
   deb:
     restart: always
     build: deb/
     #command: /bin/bash -c "python tests.py"
-    command: bash -c "sleep infinity"
+    command: bash setup.txt
     #command: psql
     volumes:
       - .:/python
@@ -32,8 +32,8 @@ services:
       - db
     environment:
       - PGHOST=db
-      - PGDATABASE=myproject
-      - PGUSER=myprojectuser
+      - PGDATABASE=dvdrental
+      - PGUSER=user
       - PGPASSWORD=password
 
 volumes:
