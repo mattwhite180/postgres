@@ -58,3 +58,13 @@
 
 # SELECT WHERE
 * `WHERE` allows us to specify conditions on columns for the rows to be returned
+	```SQL
+	SELECT column1, column2
+	FROM table
+	WHERE conditions;
+	```
+* `WHERE` filters rows
+	```SQL
+	SELECT name, choice FROM table WHERE name = "David" AND choice = "Red"
+	```
+# ORDER BY
