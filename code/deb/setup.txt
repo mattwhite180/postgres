@@ -1,3 +1,6 @@
+echo "sleeping for 15"
+sleep 15
+echo "done sleeping"
 psql --command "CREATE DATABASE dvdrental"
 pg_restore --dbname=dvdrental --verbose dvdrental.tar
 echo "DONE"
