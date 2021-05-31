@@ -3,6 +3,8 @@ sleep 15
 echo "done sleeping"
 psql --command "CREATE DATABASE dvdrental"
 pg_restore --dbname=dvdrental --verbose dvdrental.tar
+psql --command "CREATE DATABASE exercises"
+pg_restore --dbname=exercises --verbose exercises.tar
 echo "DONE"
 hostname -I
 bash -c "sleep infinity"
