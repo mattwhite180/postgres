@@ -341,3 +341,14 @@ WHERE EXISTS
 	
 	DELETE FROM tableB
 	```
+
+## ALTER
+	```SQL
+	INSERT INTO new_info(title)
+	VALUES
+	('some new title')
+	
+	ALTER TABLE new_info
+	RENAME COLUMN person TO people
+	```
+
