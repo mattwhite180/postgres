@@ -279,76 +279,82 @@ WHERE EXISTS
 	```
 
 ## CREATE TABLE
-	```SQL
-	CREATE TABLE account(
-		user_id SERIAL PRIMARY KEY,
-		username VARCHAR(50) UNIQUE NOTNULL,
-		password VARCHAR(50) NOT NULL,
-		email VARCHAR(250) UNIQUE NOT NULL,
-		created_on TIMESTAMP NOT NULL,
-		last_login TIMESTAMP
-	);
-	```
 
-	```SQL
-	CREATE TABLE job(
-		job_id SERIAL PRIMARY KEY,
-		job_name VARCHAR(200) UNIQUE NOTNULL,
-	);
-	```
+```SQL
+CREATE TABLE account(
+	user_id SERIAL PRIMARY KEY,
+	username VARCHAR(50) UNIQUE NOTNULL,
+	password VARCHAR(50) NOT NULL,
+	email VARCHAR(250) UNIQUE NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+	last_login TIMESTAMP
+);
+```
+
+```SQL
+CREATE TABLE job(
+	job_id SERIAL PRIMARY KEY,
+	job_name VARCHAR(200) UNIQUE NOTNULL,
+);
+```
 	
-	```SQL
-	CREATE TABLE account account_job(
-		user_id INTEGER REFERENCES account(user_id),
-		job_id INTEGER REFERENCES job(job_id),
-		hire_date TIMESTAMP
-	);
-	```
+```SQL
+CREATE TABLE account account_job(
+	user_id INTEGER REFERENCES account(user_id),
+	job_id INTEGER REFERENCES job(job_id),
+	hire_date TIMESTAMP
+);
+```
 
 ## INSERT
-	```SQL
-	INSERT INTO account(username, password, email, created_on)
-	VALUES
-	('jose','password','jose@gmail.com',CURRENT_TIMESTAMP)
-	
-	INSERT INTO job(job_name)
-	VALUES
-	('Astronaut')
 
-	INSERT INTO account_job(user_id, job_id, hire_date)
-	VALUES
-	(1,1,CURRENT_TIMESTAMP)
-	```
+```SQL
+INSERT INTO account(username, password, email, created_on)
+VALUES
+('jose','password','jose@gmail.com',CURRENT_TIMESTAMP)
+
+INSERT INTO job(job_name)
+VALUES
+('Astronaut')
+
+INSERT INTO account_job(user_id, job_id, hire_date)
+VALUES
+(1,1,CURRENT_TIMESTAMP)
+```
 
 ## UPDATE
-	```SQL
-	UPDATE account
-	SET last_login = created_ond
-	```
 
-	```SQL
-	-- update join
-	UPDATE account_job
-	SET hire_date = account.created_on
-	FROM account
-	WHERE account_job.user_id = account.user_id
-	```
+```SQL
+UPDATE account
+SET last_login = created_ond
+```
+
+```SQL
+-- update join
+UPDATE account_job
+SET hire_date = account.created_on
+FROM account
+WHERE account_job.user_id = account.user_id
+```
+
 ## DELETE
-	```SQL
-	DELETE FROM tableA
-	USING tableB
-	WHERE tableA.id=TableB.id
-	
-	DELETE FROM tableB
-	```
+
+```SQL
+DELETE FROM tableA
+USING tableB
+WHERE tableA.id=TableB.id
+
+DELETE FROM tableB
+```
 
 ## ALTER
-	```SQL
-	INSERT INTO new_info(title)
-	VALUES
-	('some new title')
-	
-	ALTER TABLE new_info
-	RENAME COLUMN person TO people
-	```
+
+```SQL
+INSERT INTO new_info(title)
+VALUES
+('some new title')
+
+ALTER TABLE new_info
+RENAME COLUMN person TO people
+```
 
